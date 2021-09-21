@@ -16,9 +16,9 @@ func InitDB() {
 	if err != nil {
 		panic(err.Error())
 	}
-	initMigrate()
+
 }
 
-func initMigrate() {
+func InitMigration() {
 	DB.AutoMigrate(&model.Product{})
 }

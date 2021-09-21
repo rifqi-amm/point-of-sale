@@ -6,13 +6,10 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func New() *echo.Echo {
-
-	e := echo.New()
-
-	//  routing
-	e.GET("/products", controller.GetProductController)
-	e.POST("/products", controller.CreatProductController)
-
-	return e
+func NewProduct(app *echo.Echo) {
+	app.GET("/products", controller.GetAllProductsController)
+	app.POST("/products", controller.CreateProductController)
+	app.GET("/products/:id", controller.GetProductByIDController)
+	app.DELETE("/products/:id", controller.DeleteProductByIDController)
+	app.PUT("/products/:id", controller.UpdateProductByIDController)
 }

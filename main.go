@@ -3,11 +3,15 @@ package main
 import (
 	"pos/config"
 	"pos/route"
+
+	"github.com/labstack/echo/v4"
 )
 
 func main() {
 	config.InitDB()
+	config.InitMigration()
 
-	e := route.New()
-	e.Start(":8000")
+	app := echo.New()
+	route.NewProduct(app)
+	app.Start(":8080")
 }
