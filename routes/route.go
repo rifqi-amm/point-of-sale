@@ -1,4 +1,4 @@
-package route
+package routes
 
 import (
 	"pos/controller"
@@ -7,6 +7,7 @@ import (
 )
 
 func NewProduct(app *echo.Echo) {
+	
 	app.GET("/products", controller.GetAllProductsController)
 	app.POST("/products", controller.CreateProductController)
 	app.GET("/products/:id", controller.GetProductByIDController)
